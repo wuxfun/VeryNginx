@@ -23,11 +23,11 @@ def install_openresty( ):
     if os.path.exists('/opt/VeryNginx/VeryNginx') == True:
         print("Seems that a old version of VeryNginx was installed in /opt/verynginx/...\nBefore install, please delete it and backup the configs if you need.")
         sys.exit(1)
-    
+
     #makesure the dir is clean
     print('### makesure the work directory is clean')
     exec_sys_cmd('rm -rf ' + openresty_pkg.replace('.tar.gz',''))
-    
+
     #download openresty
     down_flag = True
     if os.path.exists( './' + openresty_pkg ):
@@ -43,18 +43,18 @@ def install_openresty( ):
         exec_sys_cmd( 'wget ' + openresty_pkg_url )
     else:
         print('### use local openresty package...')
-    
+
     print('### release the package ...')
     exec_sys_cmd( 'tar -xzf ' + openresty_pkg )
 
     #configure && compile && install openresty
     print('### configure openresty ...')
     os.chdir( openresty_pkg.replace('.tar.gz','') )
-    exec_sys_cmd( './configure --prefix=/opt/verynginx/openresty --user=nginx --group=nginx --with-http_v2_module --with-http_sub_module --with-http_stub_status_module --with-luajit' )
-    
+    exec_sys_cmd( './configure --prefix=/opt/verynginx/openresty --with-http_v2_module --with-http_sub_module --with-http_stub_status_module --with-luajit' )
+
     print('### compile openresty ...')
     exec_sys_cmd( 'make' )
-    
+
     print('### install openresty ...')
     exec_sys_cmd( 'make install' )
 
@@ -67,13 +67,13 @@ def install_openresty( ):
     # exec_sys_cmd( 'sudo groupadd -f nginx && useradd -g nginx nginx' )
 
 def install_verynginx():
-    
+
     #install VeryNginx file
     print('### copy VeryNginx files ...')
     os.chdir( work_path )
     if os.path.exists('/opt/verynginx/') == False:
         exec_sys_cmd( 'mkdir -p /opt/verynginx' )
-    
+
     exec_sys_cmd( 'cp -r -f ./verynginx /opt/verynginx' )
 
     #copy nginx config file to openresty
@@ -91,7 +91,7 @@ def install_verynginx():
 
 
 def update_verynginx():
-    install_verynginx()    
+    install_verynginx()
 
 
 def exec_sys_cmd(cmd, accept_failed = False):
@@ -134,8 +134,8 @@ install cmds and args:\n\
 
 if __name__ == '__main__':
 
-    opts, args = getopt.getopt(sys.argv[1:], '', []) 
-  
+    opts, args = getopt.getopt(sys.argv[1:], '', [])
+
     cmd = safe_pop(args)
     if cmd == 'install':
         cmd = safe_pop(args)
