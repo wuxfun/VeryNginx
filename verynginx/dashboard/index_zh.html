@@ -75,7 +75,7 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" onclick="dashboard.switch_to_page('status')" href="#">VeryNginx</a> 
+                    <a class="navbar-brand" onclick="dashboard.switch_to_page('status')" href="#">VeryNginx</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -107,7 +107,7 @@
         <div class="page" id="page_status" style="display:none">
             <div class="container-fluid">
                 <div>
-                    <div class="status_group_title">请求数</div> 
+                    <div class="status_group_title">请求数</div>
                     <div class="status_group_title_desc"> 每秒</div>
                     <span class="glyphicon glyphicon-cog btn-lg pull-right" aria-hidden="true"  onclick="dashboard.open_modal_dashboard_config()">
                     </span>
@@ -126,7 +126,7 @@
                 <div class="monitor_container" spin_size="default">
                     <canvas id="chart_request" width="1400" height="400"></canvas>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-md-4">
                         <div class="status_sub_group_title">TCP连接数</div>
@@ -168,7 +168,7 @@
                         <div class="monitor_container" spin_size="sm">
                             <canvas id="chart_traffic" width="700" height="400"></canvas>
                         </div>
-                        
+
                         <div class="container-fluid" style="margin-top:-10px">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -221,7 +221,7 @@
                     </div><!-- /.modal-dialog -->
                 </div><!-- /.modal -->
 
-                
+
             </div>
         </div>
 
@@ -244,7 +244,7 @@
                                 <div class="leftnav leftnav_2" config_name="action_frequency_limit" onclick="dashboard.switch_to_config(this)">频率限制</div>
                                 <div class="leftnav leftnav_2" config_name="action_filter" onclick="dashboard.switch_to_config(this)">拦截规则</div>
                             </div>
-                            
+
                             <div class="leftnav leftnav_1" group="backend" onclick="dashboard.switch_config_nav_group(this)">后端</div>
                             <div class="leftnav_group" group="backend">
                                 <div class="leftnav leftnav_2" config_name="backend_proxy_pass" onclick="dashboard.switch_to_config(this)">反向代理</div>
@@ -263,7 +263,7 @@
                                 <div class="leftnav leftnav_2" config_name="system_allconfig" onclick="dashboard.switch_to_config(this)">所有配置</div>
                             </div>
                         </div>
-                    </div>  
+                    </div>
                     <div class="col-sm-8" id="verynginx_config">
                         <div class="config_container" id="config_basic_matcher">
                             <div class="config_title">
@@ -296,7 +296,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('matcher','{{matcher_name}}',null)">
                                                         删除
                                                     </button>
-                                                </template> 
+                                                </template>
 
                                                 <template v-if="(config_now.matcher._editing == $key )">
                                                     正在编辑..
@@ -312,7 +312,7 @@
                                 添加规则
                             </div>
                             <hr>
-                            
+
                             <form class="form-horizontal" id="matcher_form" onsubmit="return false;" vn_data_getter='matcher_editor.get_data' vn_data_setter='matcher_editor.set_data' vn_data_resetter='matcher_editor.reset'>
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2 ">
@@ -327,7 +327,7 @@
                                         <input class="form-control" id="config_matcher_editor_name" name="name" type="text" vn_data_verify="verify.str_len(1,null)" placeholder="Name of the matcher">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group" id="verynginx_matcher_editor" >
                                     <label class="col-sm-2 control-label">匹配规则</label>
                                     <div class="col-sm-10">
@@ -337,7 +337,7 @@
                                         <button type="button" class="btn btn-default btn-xs" onclick="matcher_editor.modal_condition_open()">添加新规则</button>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <template v-if="(config_now.matcher._editing != undefined )">
@@ -353,7 +353,7 @@
                                 </div>
                             </form>
                         </div>
-                        
+
                         <div class="config_container" id="config_basic_response">
                             <div class="config_title">
                                 响应规则
@@ -391,7 +391,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('response','{{response_name}}',null)">
                                                         删除
                                                     </button>
-                                                </template> 
+                                                </template>
 
                                                 <template v-if="(config_now.response._editing == $key )">
                                                     正在编辑规则...
@@ -407,7 +407,7 @@
                                 添加规则
                             </div>
                             <hr>
-                            <form class="form-horizontal" id="config_response_form" 
+                            <form class="form-horizontal" id="config_response_form"
                                   onsubmit="config.config_edit_save( 'response', 'config_response_form','name'); return false;" >
 
                                 <div class="form-group">
@@ -454,7 +454,7 @@
                                 </div>
                             </form>
                         </div>
-                        
+
                         <div class="config_container" id="config_action_scheme_lock">
                             <div class="config_title">
                                 HTTP/HTTPS锁定
@@ -499,7 +499,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_edit" onclick="config.config_edit_begin('scheme_lock_rule',{{$index}},'config_scheme_form')">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
 
                                                 <template v-if="(config_now.scheme_lock_rule._editing == $index )">
                                                     正在编辑...
@@ -510,7 +510,7 @@
                                 </tbody>
                             </table>
 
-                            
+
                             <div class="config_sub_title">
                                 编辑规则
                             </div>
@@ -628,7 +628,7 @@
                                 添加规则
                             </div>
                             <hr>
-                            <form class="form-horizontal" id="config_redirect_form" 
+                            <form class="form-horizontal" id="config_redirect_form"
                                   onsubmit="config.config_edit_save( 'redirect_rule', 'config_redirect_form'); return false;" >
 
                                <div class="form-group">
@@ -730,7 +730,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_edit" onclick="config.config_edit_begin('uri_rewrite_rule',{{$index}},'config_uri_rewrite_form')">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
 
                                                 <template v-if="(config_now.uri_rewrite_rule._editing == $index )">
                                                     正在编辑..
@@ -745,7 +745,7 @@
                                 添加规则
                             </div>
                             <hr>
-                            <form class="form-horizontal" id="config_uri_rewrite_form" 
+                            <form class="form-horizontal" id="config_uri_rewrite_form"
                                   onsubmit="config.config_edit_save( 'uri_rewrite_rule', 'config_uri_rewrite_form'); return false;" >
 
                                 <div class="form-group">
@@ -850,7 +850,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_edit" onclick="config.config_edit_begin('browser_verify_rule',{{$index}},'config_browser_verify_form')">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.browser_verify_rule._editing == $index )">
                                                     正在编辑...
                                                 </template>
@@ -931,7 +931,7 @@
                                 </div>
                             </form>
                         </div>
-                        
+
                         <div class="config_container" id="config_action_frequency_limit">
                             <div class="config_title">
                                 频率限制
@@ -983,12 +983,12 @@
                                                         下移
                                                     </button>
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('frequency_limit_rule',{{$index}},null)">
-                                                        删作
+                                                        删除
                                                     </button>
                                                     <button type="button" class="btn btn-default btn-xs btn_edit" onclick="config.config_edit_begin('frequency_limit_rule',{{$index}},'config_frequency_limit_form')">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.frequency_limit_rule._editing == $index )">
                                                     正在编辑
                                                 </template>
@@ -1002,9 +1002,9 @@
                                 添加规则
                             </div>
                             <hr>
-                            <form class="form-horizontal config_form" id="config_frequency_limit_form" 
+                            <form class="form-horizontal config_form" id="config_frequency_limit_form"
                                   onsubmit="config.config_edit_save( 'frequency_limit_rule', 'config_frequency_limit_form'); return false;" >
-                                
+
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2 ">
                                         <div class="notice" v-if="( config_now.frequency_limit_rule._editing != undefined )" >
@@ -1118,7 +1118,7 @@
                                 </div>
                             </form>
                         </div>
-                        
+
                         <div class="config_container" id="config_action_filter">
                             <div class="config_title">
                                 拦截规则
@@ -1175,7 +1175,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_edit" onclick="config.config_edit_begin('filter_rule',{{$index}},'config_filter_form')">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.filter_rule._editing == $index )">
                                                     正在编辑...
                                                 </template>
@@ -1189,9 +1189,9 @@
                                 添加规则
                             </div>
                             <hr>
-                            <form class="form-horizontal config_form" id="config_filter_form" 
+                            <form class="form-horizontal config_form" id="config_filter_form"
                                   onsubmit="config.config_edit_save( 'filter_rule', 'config_filter_form'); return false;" >
-                                
+
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2 ">
                                         <div class="notice" v-if="( config_now.filter_rule._editing != undefined )" >
@@ -1297,7 +1297,7 @@
 							<div>先定义一个upstream,里面包含ip:port节点,然后在具体的location条件执行proxypass</div>
                             <input type="checkbox" id="checkbox" v-model="config_now.proxy_pass_enable">
                             <label>开启</label>
-                            
+
                             <div class="config_title_2">
                                 nginx upstream定义
                             </div>
@@ -1326,11 +1326,11 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('backend_upstream','{{$key}}',null)">
                                                         删除
                                                     </button>
-                                                    <button type="button" class="btn btn-default btn-xs btn_edit" 
+                                                    <button type="button" class="btn btn-default btn-xs btn_edit"
                                                         onclick="config.config_edit_begin('backend_upstream','{{$key}}','config_upstream_form','name');dashboard.switch_tab_bar('config_proxy_pass_editor','upstream');">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.backend_upstream._editing == $key )">
                                                     正在编辑...
                                                 </template>
@@ -1381,11 +1381,11 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('proxy_pass_rule',{{$index}},null)">
                                                         删除
                                                     </button>
-                                                    <button type="button" class="btn btn-default btn-xs btn_edit" 
+                                                    <button type="button" class="btn btn-default btn-xs btn_edit"
                                                            onclick="config.config_edit_begin('proxy_pass_rule',{{$index}},'config_proxy_pass_form');dashboard.switch_tab_bar('config_proxy_pass_editor','proxypass');">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.proxy_pass_rule._editing == $index )">
                                                     正在编辑...
                                                 </template>
@@ -1406,10 +1406,10 @@
                             </ul>
 
                             <div class="nav_box" group="config_proxy_pass_editor" tag="upstream" >
-                                <form class="form-horizontal" id="config_upstream_form" 
-                                 vn_data_getter="upstream_editor.get_data" vn_data_setter="upstream_editor.set_data" vn_data_resetter="upstream_editor.reset" vn_data_verify="" 
+                                <form class="form-horizontal" id="config_upstream_form"
+                                 vn_data_getter="upstream_editor.get_data" vn_data_setter="upstream_editor.set_data" vn_data_resetter="upstream_editor.reset" vn_data_verify=""
                                   onsubmit="config.config_edit_save( 'backend_upstream', 'config_upstream_form', 'name' ); return false;" >
-                                
+
                                     <div class="form-group">
                                         <div class="col-sm-10 col-sm-offset-2 ">
                                             <div class="notice" v-if="( config_now.backend_upstream._editing != undefined )" >
@@ -1458,11 +1458,11 @@
                                 </form>
 
                             </div>
-                            
+
                             <div class="nav_box" group="config_proxy_pass_editor" tag="proxypass" style="display:none">
-                                <form class="form-horizontal" id="config_proxy_pass_form" 
+                                <form class="form-horizontal" id="config_proxy_pass_form"
                                   onsubmit="config.config_edit_save( 'proxy_pass_rule', 'config_proxy_pass_form'); return false;" >
-                                
+
                                     <div class="form-group">
                                         <div class="col-sm-10 col-sm-offset-2 ">
                                             <div class="notice" v-if="( config_now.proxy_pass_rule._editing != undefined )" >
@@ -1566,11 +1566,11 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('static_file_rule',{{$index}},null)">
                                                         删除
                                                     </button>
-                                                    <button type="button" class="btn btn-default btn-xs btn_edit" 
+                                                    <button type="button" class="btn btn-default btn-xs btn_edit"
                                                            onclick="config.config_edit_begin('static_file_rule',{{$index}},'config_static_file_form');">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.static_file_rule._editing == $index )">
                                                     正在编辑...
                                                 </template>
@@ -1585,9 +1585,9 @@
                             </div>
 
                             <div class="nav_box">
-                                <form class="form-horizontal" id="config_static_file_form" 
+                                <form class="form-horizontal" id="config_static_file_form"
                                   onsubmit="config.config_edit_save( 'static_file_rule', 'config_static_file_form'); return false;" >
-                                
+
                                     <div class="form-group">
                                         <div class="col-sm-10 col-sm-offset-2 ">
                                             <div class="notice" v-if="( config_now.static_file_rule._editing != undefined )" >
@@ -1641,19 +1641,19 @@
                                 </form>
                             </div>
                         </div>
-                        
+
                         <div class="config_container" id="config_summary_general">
                             <div class="config_title">
                                 通用
                             </div>
 
                             <hr>
-                            
+
                             <div>
                                 <input type="checkbox" id="checkbox" v-model="config_now.summary_request_enable">
                                 <label>开启概况统计</label>
                             </div>
-                           
+
                             <div>
                                 <input type="checkbox" id="checkbox" v-model="config_now.summary_with_host" >
                                 <label>记录请求的host信息</label>
@@ -1684,15 +1684,15 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="config_container" id="config_summary_collect">
                             <div class="config_title">
                                 集合统计
                             </div>
-                            
+
                             <input type="checkbox" id="checkbox" v-model="config_now.summary_collect_enable">
                             <label>开启</label>
-                            
+
                             <table class="table table-bordered config_table" id="config_summary_collect_table">
                                 <thead>
                                     <tr>
@@ -1728,11 +1728,11 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_del" onclick="config.config_mod('summary_collect_rule',{{$index}},null)">
                                                         删除
                                                     </button>
-                                                    <button type="button" class="btn btn-default btn-xs btn_edit" 
+                                                    <button type="button" class="btn btn-default btn-xs btn_edit"
                                                            onclick="config.config_edit_begin('summary_collect_rule',{{$index}},'config_summary_collect_form');">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.summary_collect_rule._editing == $index )">
                                                     正在编辑...
                                                 </template>
@@ -1747,9 +1747,9 @@
                             </div>
 
                             <div class="nav_box">
-                                <form class="form-horizontal" id="config_summary_collect_form" 
+                                <form class="form-horizontal" id="config_summary_collect_form"
                                   onsubmit="config.config_edit_save( 'summary_collect_rule', 'config_summary_collect_form'); return false;" >
-                                
+
                                     <div class="form-group">
                                         <div class="col-sm-10 col-sm-offset-2 ">
                                             <div class="notice" v-if="( config_now.summary_collect_rule._editing != undefined )" >
@@ -1804,7 +1804,7 @@
                                 通用
                             </div>
                             <hr>
-                            
+
                             <div class="config_sub_title">
                                 控制面板
                             </div>
@@ -1815,14 +1815,14 @@
                                     <input class="form-control vn-config-input" type="text" v-model="config_now.base_uri" placeholder="/verynginx" vn_data_verify="verify.base_uri()" onchange="vnform.verify_input_with_notice(this)">
                                 </div>
                             </div>
-                            
+
                             <div class="vn-config-box row">
                                 <div class="col-sm-2 vn-config-label">访问本页IP限制</div>
                                 <div class="col-sm-10">
                                     <input class="form-control vn-config-input" type="text" v-model="config_now.dashboard_host" placeholder="If not empty, dashboard can only be accessed through the designated host" vn_data_verify="verify.host_or_empty()" onchange="vnform.verify_input_with_notice(this)">
                                 </div>
                             </div>
-                            
+
                             <div class="vn-config-box row">
                                 <div class="col-sm-2 vn-config-label">本页Cookie前缀设置</div>
                                 <div class="col-sm-10">
@@ -1851,7 +1851,7 @@
 
                                 </pre>
                             </div>
-                            
+
                             <div style="font-size:1.2em">
                                 动作
                             </div>
@@ -1898,7 +1898,7 @@
                                                     <button type="button" class="btn btn-default btn-xs btn_edit" onclick="config.config_edit_begin('admin',{{$index}},'config_admin_form')">
                                                         编辑
                                                     </button>
-                                                </template> 
+                                                </template>
                                                 <template v-if="(config_now.admin._editing == $index )">
                                                     正在编辑...
                                                 </template>
@@ -1912,9 +1912,9 @@
                                 添加用户
                             </div>
                             <hr>
-                            <form class="form-horizontal" id="config_admin_form" 
+                            <form class="form-horizontal" id="config_admin_form"
                                   onsubmit="config.config_edit_save( 'admin', 'config_admin_form'); return false;" >
-                                
+
                                 <div class="form-group">
                                     <div class="col-sm-10 col-sm-offset-2 ">
                                         <div class="notice" v-if="( config_now.admin._editing != undefined )" >
@@ -1963,14 +1963,14 @@
                         <template v-for="tip in tips">
                             <div class="tips_container"  onclick="tips.toggle(this)">
                                 <div class="tips_tips">
-                                    {{tip.tips}} 
+                                    {{tip.tips}}
                                 </div>
-                                
+
                                 <div class="tips_content collapse">
                                     <template  v-if="(typeof tip.content == 'string')">
                                         {{ tip.content }}
                                     </template>
-                                    
+
                                     <template  v-if="(typeof tip.content == 'object')">
                                         <ul>
                                             <template  v-for="row in tip.content ">
@@ -1987,10 +1987,10 @@
                 <div class="row" id="config_bottom_div" style="display:none">
                     <div style="height:45px">
                     </div>
-                    
+
                     <div id="config_bottom_bar">
                         <div id="config_bottom_bar_message">
-                        
+
 							配置已经发生变化，你可以点保存配置或重载修改前的配置
                         </div>
                         <div class="pull-right" id="config_bottom_bar_btns">
@@ -2000,7 +2000,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Add UpStream node Modal -->
             <div class="modal fade" id="config_modal_node">
                 <div class="modal-dialog ">
@@ -2081,22 +2081,22 @@
                                             <div class="input_group_container" >
                                                 <div class="input_group_title">
                                                     <span style='background:#fff;padding-left:5px;padding-right:5px'>{{ config_group.group_name }}</span>
-                                                </div> 
+                                                </div>
                                                 <template v-for="input_item in config_group.input">
                                                     <div class="input_item">
                                                         <div class="row">
                                                             <div class="col-sm-2 input_item_title">
-                                                                {{input_item.title}} 
+                                                                {{input_item.title}}
                                                             </div>
-                                                            <div class="col-sm-10 input_item_inputer"> 
+                                                            <div class="col-sm-10 input_item_inputer">
                                                                 <template v-if="(input_item.type == 'input')">
                                                                     <input type="text" class="form-control config_matcher_editor_value" name="{{input_item.name}}" placeholder="{{input_item.placeholder}}">
                                                                 </template>
-                                                                
+
                                                                 <template v-if="(input_item.type == 'textarea')">
                                                                     <textarea class="form-control config_matcher_editor_value" rows='3' name="{{input_item.name}}" placeholder="{{input_item.placeholder}}"></textarea>
                                                                 </template>
-                                                                
+
                                                                 <template v-if="(input_item.type == 'select')">
                                                                     <select class="form-control config_matcher_editor_value" name="{{input_item.name}}" onchange="matcher_editor.update_display()">
                                                                         <template v-for="(k,v) in input_item.options">
@@ -2104,7 +2104,7 @@
                                                                         </template>
                                                                     </select>
                                                                 </template>
-                                                            </div> 
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </template>
@@ -2140,7 +2140,7 @@
 
                         <div class="pull-right" >
                             <div id="summary_control_label" >数据类型</div>
-                            
+
                             <div class="btn-group">
                                 <div class="btn-group">
                                     <button type="button" style="width:120px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="def_btn">所有<span class="caret"></span></button>
@@ -2155,13 +2155,13 @@
                         </div>
                     </div>
                 </div>
-               
+
                 <div id="summary_type_note" style="display:none">
                     <span>注意:临时概况会被定期清理掉.</span>
                 </div>
-                
+
                 <div class="summary_sub_title">
-                    集合统计 
+                    集合统计
                 </div>
                 <table class="table table-hover table-bordered display" id="summary_matched_table">
                     <thead>
@@ -2179,7 +2179,7 @@
                     <tbody id="matched_details">
                     </tbody>
                 </table>
-                
+
                 <div class="summary_sub_title">
                     其他
                 </div>
@@ -2204,7 +2204,7 @@
         <div class="page" id="page_firewall" style="display:none">
             防火墙
         </div>
-        
+
         <div class="page" id="page_about" style="display:none">
             <div style="padding-top:100px">
                 <h1 class="text-center" id="about_title">VeryNginx</h1>
@@ -2216,7 +2216,7 @@
                 </div>
             </div>
         </div>
-    
+
     </div>
 </body>
 </html>
